@@ -1,0 +1,62 @@
+﻿@model ViewUser
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h3>Register:</h3>
+<p style="color:green">@TempData["registrationsuccess"]</p>
+<p style="color:red">@TempData["registrationfailed"]</p>
+<form action="register" method="post">
+    <table>
+        <tr>
+            <th>First Name:</th>
+            <td><input asp-for="first_name"></td>
+            <td><span asp-validation-for="first_name"></span></td>
+        </tr>
+        <tr>
+            <th>Last Name:</th>
+            <td><input asp-for="last_name"></td>
+            <td><span asp-validation-for="last_name"></span></td>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <td><input asp-for="email"></td>
+            <td><span asp-validation-for="email"></span></td>
+        </tr>
+        <tr>
+            <th>Password:</th>
+            <td><input type="password" asp-for="password"></td>
+            <td><span asp-validation-for="password"></span></td>
+        </tr>
+        <tr>
+            <th>Confirm:</th>
+            <td><input type="password" asp-for="confirm_password"></td>
+            <td><span asp-validation-for="confirm_password"></span></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td><input type="submit" value="Register"></td>
+        </tr>
+    </table>
+</form>
+
+<hr>
+
+<h3>Login:</h3>
+<p class="field-validation-error">@TempData["loginfail"]</p>
+<form action="login" method="post">
+    <table>
+        <tr>
+            <th>Email:</th>
+            <td><input type="text" name="email"></td>
+        </tr>
+        <tr>
+            <th>Password:</th>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td><input type="submit" value="Login"></td>
+        </tr>
+    </table>
+</form>

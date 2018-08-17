@@ -1,0 +1,20 @@
+body{padding-top:50px;padding-bottom:20px}.body-content{padding-left:15px;padding-right:15px}.carousel-caption p{font-size:20px;line-height:1.4}.carousel-inner .item img[src$=".svg"]{width:100%}#qrCode{margin:15px}@media screen and (max-width:767px){.carousel-caption{display:none}}.field-validation-error {color: red;}
+
+
+.petblock {
+    text-align: center;
+    width: 300px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 5px 5px 0;
+}
+
+.petimage {
+    max-width: 100%;
+    max-height: 200px;
+    margin-bottom: 8px;
+}

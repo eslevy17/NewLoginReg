@@ -1,0 +1,19 @@
+@model Pet
+
+<h4>Add a pet:</h4>
+<form asp-controller="Rank" asp-action="AddPet" method="post">
+
+    <p>Name:</p>
+    <span asp-validation-for="name"></span>
+    <p><input asp-for="name"></p>
+
+    <p>Image URL:</p>
+    <span asp-validation-for="image"></span>
+    <p><input asp-for="image"></p>
+
+    <p>Description:</p>
+    <span asp-validation-for="description"></span>
+    <p><input asp-for="description"></p>
+
+    <p><input type="submit" value="Add Pet"></p>
+</form>

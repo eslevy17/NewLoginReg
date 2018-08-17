@@ -1,0 +1,38 @@
+@model Pet
+<h2>Details for @Model.name</h2>
+<a href="/success"><button>Back</button></a>
+
+<hr>
+<img class="petimage" src="@Model.image" alt="photo of @Model.name">
+<p>@Model.description</p>
+@{
+    if (@Model.likes.Count() == 1)
+    {
+        <p>@Model.likes.Count() like</p>
+    }
+    else
+    {
+        <p>@Model.likes.Count() likes</p>
+    }
+    if (@Model.likes.Where(l => l.user_id == ViewBag.CurrentUserId).ToList().Count() > 0)
+    {
+        <a href="@Model.id/unlike"><button>Unlike</button></a>
+    }
+    else
+    {
+        <a href="@Model.id/like"><button>Like</button></a>
+    }
+}
+
+<p>Posted by @Model.user.first_name @Model.user.last_name</p>
+<p>Posted on @Model.created_at.ToString("MMMM, dd, yyyy")</p>
+@{
+
+    {
+        <p>Posted @DateTime.Now.Subtract(@Model.created_at).ToString("hh") hours ago.</p>
+    }
+
+    {
+        <p>Posted @DateTime.Now.Subtract(@Model.created_at).ToString("mm") minutes ago</p>
+    }
+}

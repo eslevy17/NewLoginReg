@@ -1,0 +1,35 @@
+<h2>Pet Ranker</h2>
+
+<hr>
+@foreach(Pet pet in ViewBag.AllPets)
+{
+    <div class="petblock">
+        <h3><a href="pet/@pet.id">@pet.name</a></h3>
+        <a href="pet/@pet.id"><img class="petimage" src="@pet.image"></a>
+        <p>@pet.description</p>
+        @{
+            if (@pet.likes.Count() == 1)
+            {
+                <p>@pet.likes.Count() like</p>
+            }
+            else
+            {
+                <p>@pet.likes.Count() likes</p>
+            }
+            if (pet.likes.Where(i => i.user_id == ViewBag.CurrentUserId).ToList().Count() > 0)
+            {
+                <a href="unlikepet/@pet.id"><button>Unlike</button></a>
+            }
+            else
+            {
+                <a href="likepet/@pet.id"><button>Like</button></a>
+            }
+        }
+        <p>Posted @pet.created_at.ToString("MMMM dd, yyyy")</p>
+        <p>Posted @DateTime.Now.Subtract(@pet.created_at).ToString("hh") hours and @DateTime.Now.Subtract(@pet.created_at).ToString("mm") minutes ago.</p>
+    </div>
+}
+
+<hr>
+
+@Html.Partial("AddNew", (Pet)Model)
